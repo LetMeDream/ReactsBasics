@@ -5,18 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REACT'S BASICS</title>
+
 </head>
 <body>
 
     <div id="root"></div>
 
+    <script type='text/javascript' src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script type='text/javascript' src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
     <script type='text/javascript'>
-        const root = document.getElementById('root');
-        const element = document.createElement('div');
+        /* const element = document.createElement('div');
         element.textContent = 'Hello World from Vanilla JS';
-
         root.appendChild(element);
-        element.classList = 'container'
+        element.classList = 'container'; */
+        // Let's redo what we had done but using React this time
+        // We can get React with NPM but, for this time, we will use the 'unpackage' service
+        const root = document.getElementById('root');
+        const element = React.createElement('div', {
+            children: 'Hello World from ReactJS',
+            className: 'container',
+        });
+        console.log(element);
+        ReactDOM.render(element, root);
+
+
 
     </script>
 
