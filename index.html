@@ -13,7 +13,10 @@
 
     <script type='text/javascript' src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
     <script type='text/javascript' src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
-    <script type='text/javascript'>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type='text/babel' src="react.js"></script>
+    <!-- <script type='text/javascript'>
         /* const element = document.createElement('div');
         element.textContent = 'Hello World from Vanilla JS';
         root.appendChild(element);
@@ -22,15 +25,20 @@
         // We can get React with NPM but, for this time, we will use the 'unpackage' service
         const root = document.getElementById('root');
         const element = React.createElement('div', {
-            children: 'Hello World from ReactJS',
+            /* children: 'Hello World from ReactJS', */
+            /* children: ['Hello World', ' From React'], */
+            children: React.createElement('button', null, 'Click me, From React'),
             className: 'container',
-        });
+        }
+        /* 'Hello World',
+        ', Goodbye world' */
+        );
         console.log(element);
         ReactDOM.render(element, root);
 
 
 
-    </script>
+    </script> -->
 
 </body>
 </html>
