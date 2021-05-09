@@ -1,24 +1,16 @@
 let rootElement = document.getElementById('root');
 
-//Now we will recreate the exact same example from above but using JSX
-//In order fro the browser to be able to understand JSX, 'babel' must be used
+let btnClasses = 'button is-danger is-outlined mx-1';
 
-/* If we wanted to use variables as interpolated values */
-let greet = 'Hello from an interpolated JSX variable';
-let divClassName = 'container mt-3';
-
-let className = 'button is-small';
-let href = 'https://google.co.ve';
-let props = { className, href }
+/* Creating a component on React */
+let Btn = (props) => <a class={btnClasses} href={ props.url }>Going to { props.destiny }</a>;
 
 let element =
     <>
-        <div className={divClassName}>
-            {greet}<br/>
-            <a id='extended' { ...props } target='_blank'>New button</a>
-        </div>
+        <Btn destiny='4chan' url='https://4chan.org'></Btn>
+        <Btn destiny='Youtube' url='https://www.youtube.com'></Btn>
     </>;
 
-console.log(element);
+console.log(Btn);
 
 ReactDOM.render(element, rootElement);
