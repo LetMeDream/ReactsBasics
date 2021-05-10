@@ -1,23 +1,15 @@
 let rootElement = document.getElementById('root');
 
-function CountChars({text}){
-    // js-land
-    return(// js-land
-        <div className=''>
-            The text "<strong>{text.toLowerCase()}</strong>" has
-            { text.length ? <strong> {text.length} </strong> : ' no ' }
-            characters
-        </div>
-        // js-land
-    )
+function tick(){
+    const time = new Date().toLocaleTimeString();
+    const element =
+    <div>
+        <input value={time}></input>
+    </div>;
 
+
+
+    ReactDOM.render(element, rootElement);
 }
 
-let element =
-    <React.Fragment>
-        <CountChars text='A single text'></CountChars>
-        <CountChars text=''></CountChars>
-        <CountChars text='whatever text we wanted'></CountChars>
-    </React.Fragment>
-
-ReactDOM.render(element, rootElement);
+setInterval(tick, 1000);
