@@ -1,16 +1,23 @@
 let rootElement = document.getElementById('root');
 
-let btnClasses = 'button is-danger is-outlined mx-1';
+function CountChars({text}){
+    // js-land
+    return(// js-land
+        <div className=''>
+            The text "<strong>{text.toLowerCase()}</strong>" has
+            { text.length ? <strong> {text.length} </strong> : ' no ' }
+            characters
+        </div>
+        // js-land
+    )
 
-/* Creating a component on React */
-let Btn = (props) => <a class={btnClasses} href={ props.url }>Going to { props.destiny }</a>;
+}
 
 let element =
-    <>
-        <Btn destiny='4chan' url='https://4chan.org'></Btn>
-        <Btn destiny='Youtube' url='https://www.youtube.com'></Btn>
-    </>;
-
-console.log(Btn);
+    <React.Fragment>
+        <CountChars text='A single text'></CountChars>
+        <CountChars text=''></CountChars>
+        <CountChars text='whatever text we wanted'></CountChars>
+    </React.Fragment>
 
 ReactDOM.render(element, rootElement);
