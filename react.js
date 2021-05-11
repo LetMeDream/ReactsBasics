@@ -1,24 +1,36 @@
 let rootElement = document.getElementById('root');
 
-//Now we will recreate the exact same example from above but using JSX
-//In order fro the browser to be able to understand JSX, 'babel' must be used
+let state = { count: 0 , msg: '' }
 
-/* If we wanted to use variables as interpolated values */
-let greet = 'Hello from an interpolated JSX variable';
-let divClassName = 'container mt-3';
+function App(){
 
-let className = 'button is-small';
-let href = 'https://google.co.ve';
-let props = { className, href }
+    function handleButton(){
+        setState( { count: state.count + 1 } );
+    }
 
-let element =
-    <>
-        <div className={divClassName}>
-            {greet}<br/>
-            <a id='extended' { ...props } target='_blank'>New button</a>
+    function handleChange(event){
+        setState( { msg: event.target.value } );
+    }
+
+    return(
+        <div className='container mt-2'>
+            <button onClick={ handleButton } >Event me</button>
+            <p>The event has fired {state.count} times </p>
+            <p>The message written in the input below is: <strong>{ state.msg }</strong></p>
+            <input onChange={ handleChange } />
         </div>
-    </>;
+    )
 
-console.log(element);
+}
 
-ReactDOM.render(element, rootElement);
+/* Fake setState of our creation */
+function setState(newState){
+    Object.assign(state, newState);
+    Render()
+}
+/* Rendering, as usual, but inside it's own function */
+function Render(){
+    ReactDOM.render(<App/>, rootElement);
+}
+Render()
+
