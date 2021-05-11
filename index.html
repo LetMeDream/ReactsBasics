@@ -5,45 +5,69 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REACT'S BASICS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> -->
+
+    <style>
+        .box{
+            border: 1px solid black;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+        }
+        .box-small{
+            width:90px;
+            height: 90px;
+        }
+        .box-medium{
+            width:180px;
+            height: 180px
+        }
+        .box-large{
+            width:270px;
+            height: 270px;
+        }
+    </style>
 
 </head>
 <body>
 
-    <div class='container mt-3' id="root"></div>
+    <div class='' id="root"></div>
 
     <script type='text/javascript' src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
     <script type='text/javascript' src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type='text/babel' src="react.js"></script>
-    <!-- <script type='text/babel'>
+    <script type='text/babel'>
 
         let rootElement = document.getElementById('root');
 
-        //React api in order to create the element
-        /* let element = React.createElement('div', {
-            children: ['Hello world but from ReactJs'],
-            className: 'container'
-            }
-        ); */
+        function Box({className, style, size, ...rest}){
 
-        //Now we will recreate the exact same example from above but using JSX
-        //In order fro the browser to be able to understand JSX, 'babel' must be used
+            let boxClassName = size ? `box-${size}` : '';
 
-        /* If we wanted to use variables as interpolated values */
-        let className = 'container';
+            return(
+                <div
+                className={`box ${boxClassName} ${className}`}
+                style={{ fontStyle:'italic', ...style }}
+                {...rest}/>
+            )
 
-        let element = <div className={className}>
-            Hello from JSX using <i>babel</i>
-            </div>;
-        console.log(element);
+        }
+
+        let element =
+            <div>
+                <Box size='small' style={{ backgroundColor: 'lightblue' }}>Small lightblue box</Box>
+                <Box size='medium' style={{ backgroundColor: 'pink' }}>Medium pink box</Box>
+                <Box size='large' style={{ backgroundColor: 'maroon' }}>Large maroon box</Box>
+            </div>
 
         ReactDOM.render(element, rootElement);
 
 
 
-    </script> -->
+    </script>
 
 </body>
 </html>

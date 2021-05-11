@@ -1,4 +1,4 @@
-let rootElement = document.getElementById('root');
+/* let rootElement = document.getElementById('root');
 
 function tick(){
     const time = new Date().toLocaleTimeString();
@@ -12,4 +12,4 @@ function tick(){
     ReactDOM.render(element, rootElement);
 }
 
-setInterval(tick, 1000);
+setInterval(tick, 1000); */
