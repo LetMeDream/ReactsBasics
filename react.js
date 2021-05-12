@@ -2,14 +2,13 @@ let rootElement = document.getElementById('root');
 
 function Greetings(){
 
-    const [name, setName] = React.useState(window.localStorage.getItem('name'));
+    /* Let's "optimize it" using a lazy loader */
+    const [name, setName] = React.useState(() => window.localStorage.getItem('name'));
 
     React.useEffect( () => {
         window.localStorage.setItem('name', name);
         name ? document.title = `Welcome, ${name.charAt(0).toUpperCase() + name.slice(1) }` : document.title = "REACT'S BASICS" ;
         /* Just to show the empty array ([]) optimization */
-        console.log('rendered');
-
     }, [name]);
 
     return(
